@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-once>{{ title }}</p>
+    <p>{{ salute() }}</p>
+    <a :href="link">Github</a>
+    <p v-html="linkHtml"></p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello, world!',
+            link: 'https://www.github.com/abreumatheus',
+            linkHtml: '<a href="https://www.linkedin.com/in/matheuspsabreu">LinkedIn</a>'
+        },
+        methods: {
+            salute: function () {
+                this.title = 'Good evening!'
+                return this.title
+            }
+        }
+    })
+</script>
+</body>
+</html>
