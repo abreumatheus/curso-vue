@@ -14,6 +14,10 @@
         <span v-on:mousemove.stop="">STOP PROPAGATION</span>
     </p>
     <a href="https://google.com" v-on:click.prevent="">Google</a>
+    <br>
+    <br>
+    <input type="text" placeholder="Press Enter" v-on:keyup.enter="showAlert('You pressed Enter!')">
+    <input type="text" placeholder="Press Alt+Enter" v-on:keyup.alt.enter="showAlert('You pressed Alt+Enter!')">
 </div>
 
 <script>
@@ -31,6 +35,9 @@
             displayXY(e) {
                 this.x = e.clientX
                 this.y = e.clientY
+            },
+            showAlert(msg) {
+                alert(msg)
             }
         }
     })
