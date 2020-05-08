@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .boxes {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="boxes">
+        <div class="demo" :style="{backgroundColor: color}"></div>
+        <div class="demo" :style="[applyStyle, applyHeight]"></div>
+        <div class="demo"></div>
+    </div>
+    <input type="text" v-model="color">
+    <input type="text" v-model="width">
+    <input type="text" v-model="customHeight">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            color: 'black',
+            width: 100,
+            customHeight: 20
+        },
+        computed: {
+            applyStyle() {
+                return {
+                    backgroundColor: this.color,
+                    width: this.width + 'px'
+                }
+            },
+            applyHeight() {
+                return {
+                    height: this.customHeight + 'px'
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
