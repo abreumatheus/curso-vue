@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>User List</h1>
+    <template v-for="(user, index) in users">
+        <h2>{{ index + 1 }} - {{ user.name }}</h2>
+        <h2>{{ user.age }}yo - {{ user.email }}</h2>
+        <hr>
+    </template>
+    <br>
+    <h1>User List 2</h1>
+    <template v-for="(user, index) in users">
+        <template v-for="(attr, index) in user">
+            <h2>{{ index }} - {{ attr }}</h2>
+        </template>
+        <hr>
+    </template>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            users: [
+                {name: 'John', age: '25', email: 'john@email.com'},
+                {name: 'Lucas', age: '20', email: 'lucas@email.com'},
+                {name: 'Mary', age: '22', email: 'mary@email.com'},
+                {name: 'Scarlett', age: '27', email: 'scarllet@email.com'},
+            ]
+        }
+    })
+</script>
+</body>
+</html>
