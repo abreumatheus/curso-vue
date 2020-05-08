@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div id="logged" v-if="logged">
+        <p>Logged User: {{ username }}</p>
+        <button @click="logout">Logout</button>
+    </div>
+    <div id="not-logged" v-else>
+        <p>Not logged in!</p>
+        <button @click="login">Login</button>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            username: 'testuser',
+            logged: false
+        },
+        methods: {
+            login() {
+                this.logged = true
+            },
+            logout() {
+                this.logged = false
+            }
+        }
+    })
+</script>
+</body>
+</html>
