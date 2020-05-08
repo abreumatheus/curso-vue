@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .boxes {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+        }
+
+        .c1 {
+            background-color: chocolate;
+        }
+
+        .c2 {
+            background-color: aqua;
+        }
+
+        .c3 {
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="boxes">
+        <div class="demo" :class="styleOne" @click="applyC1 = !applyC1"></div>
+        <div class="demo" :class="styleTwo" @click="applyC2 = !applyC2"></div>
+        <div class="demo" :class="dynamicCSS" @click="applyC3 = !applyC3"></div>
+    </div>
+    <input type="text" v-model="dynamicCSS">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            applyC1: false,
+            applyC2: false,
+            applyC3: false,
+            dynamicCSS: 'c1'
+        },
+        computed: {
+            styleOne() {
+                return {
+                    c1: this.applyC1,
+                    c2: !this.applyC1
+                }
+            },
+            styleTwo() {
+                return {
+                    c2: this.applyC2,
+                    c3: !this.applyC2
+                }
+            },
+            styleThree() {
+                return {
+                    c3: this.applyC3,
+                    c1: !this.applyC3
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
