@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <template id="logged" v-if="logged">
+        <p>Logged User: {{ username }}</p>
+        <button @click="logout">Logout</button>
+    </template>
+    <template id="anon" v-else-if="anon">
+        <p>Browsing as anonymous user!</p>
+        <button @click="logout">Logout</button>
+    </template>
+    <template id="not-logged" v-else>
+        <p>Not logged in!</p>
+        <button @click="login">Login</button>
+        <button @click="loginAnon">Login as Anon</button>
+    </template>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            username: 'testuser',
+            logged: false,
+            anon: false
+        },
+        methods: {
+            login() {
+                this.logged = true
+            },
+            loginAnon() {
+                this.anon = true
+            },
+            logout() {
+                this.logged = false
+                this.anon = false
+            }
+        }
+    })
+</script>
+</body>
+</html>
