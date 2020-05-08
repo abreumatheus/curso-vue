@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>Counter 1: {{ counter }}</p>
+    <p>Counter 2: {{ counter2 }}</p>
+    <p>Result: {{ result }}</p>
+    <button v-on:click="incrementCounter1">Increase Counter 1</button>
+    <button v-on:click="incrementCounter2">Increase Counter 2</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+            counter2: 0
+        },
+        watch: {
+            counter(newValue, oldValue) {
+                console.log(newValue, oldValue)
+                setTimeout(() => {
+                    this.counter = 0
+                }, 2000)
+            }
+        },
+        computed: {
+            result() {
+                return this.counter >= 5 ? 'Counter 1 is higher or equal to 5' : 'Counter 1 is lower than 5'
+            }
+        },
+        methods: {
+            incrementCounter1() {
+                this.counter++
+            },
+            incrementCounter2() {
+                this.counter2++
+            }
+        }
+    })
+</script>
+</body>
+</html>
