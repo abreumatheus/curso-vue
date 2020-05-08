@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Color List</h1>
+    <template v-for="(color, index) in colors">
+        <h2>{{ index + 1 }} - {{ color }}</h2>
+    </template>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            colors: ['Purple', 'Green', 'Pink', 'Red']
+        }
+    })
+</script>
+</body>
+</html>
