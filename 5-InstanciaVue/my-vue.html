@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Vue</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{ name }}</h1>
+    <h2>{{ age }}yo</h2>
+    <h3>{{ 5 / 2 }}</h3>
+    <h3>{{ 5 + 2 }}</h3>
+    <h3>{{ 5 - 2 }}</h3>
+    <h3>{{ 5 * 2 }}</h3>
+</div>
+
+<script>
+    function MyVue(params) {
+        this.$el = document.querySelector(params.el)
+        this.$data = params.data
+
+        for(let attr in this.$data) {
+            Object.defineProperty(this, attr, {
+                get() {
+                    return this.$data[attr]
+                },
+                set(v) {
+                    this.$data[attr] = v
+                }
+            })
+        }
+
+        const regex = /{{([\s\w+*-\/]*)}}/g
+        this.$el.innerHTML = this.$el.innerHTML.replace(regex, (match, $1) => {
+            const value = this[$1.trim()]
+            return value ? value : eval($1)
+        })
+    }
+
+    const vm = new MyVue({
+        el: '#app',
+        data: {
+            name: 'Matheus',
+            age: '21'
+        }
+    })
+</script>
+</body>
+</html>
