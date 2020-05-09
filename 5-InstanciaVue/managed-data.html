@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{ title }}</h1>
+    <button @click="addToTitle()">Change Title</button>
+    <h1>{{ newInfo }}</h1> <!--This property is non reactive and will not be interpolated-->
+</div>
+
+
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            title: 'Title'
+        },
+        methods: {
+            addToTitle() {
+                this.title += '!!!'
+            }
+        }
+    })
+
+    vm.newInfo = 'Test'
+    console.log(vm.newInfo)
+</script>
+</body>
+</html>
