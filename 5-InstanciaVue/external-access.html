@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app1">
+    <h1>{{ title1 }}</h1>
+    <button @click="addToTitle2()">Change Title 2</button>
+</div>
+<div id="app2">
+    <h1>{{ title2 }}</h1>
+    <button @click="addToTitle1()">Change Title 1</button>
+</div>
+
+<script>
+    const vm1 = new Vue({
+        el: '#app1',
+        data:{
+            title1: 'Title 1'
+        },
+        methods: {
+            addToTitle2() {
+                vm2.title2 += '!!!'
+            }
+        }
+    })
+
+    const vm2 = new Vue({
+        el: '#app2',
+        data:{
+            title2: 'Title 2'
+        },
+        methods: {
+            addToTitle1() {
+                vm1.title1 += '???'
+            }
+        }
+    })
+</script>
+</body>
+</html>
