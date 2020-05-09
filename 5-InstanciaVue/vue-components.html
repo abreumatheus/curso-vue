@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <comp></comp>
+</div>
+
+
+<script>
+    Vue.component('comp', {
+        template: `
+            <div>
+                <h1>{{ title }}</h1>
+                <h2>{{ subtitle }}</h2>
+                <button @click="addToTitle()">Change Title</button>
+                <button @click="addToSubtitle()">Change Subtitle</button>
+            </div>`,
+        data() {
+            return {
+                title: 'Title',
+                subtitle: 'Subtitle'
+            }
+        },
+        methods: {
+            addToTitle() {
+                this.title += '!!!'
+            },
+            addToSubtitle() {
+                this.subtitle += '???'
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>
