@@ -15,8 +15,8 @@
         <button @click="changeParagraph()">Alternar</button>
         <p v-if="paragraph === 1">Você quer me ver ...</p>
         <p v-else-if="paragraph === 2">...ou eu</p>
-        <p v-else-if="paragraph === 3">Você quer me ver ...</p>
-        <p v-else-if="paragraph === 4">...ou eu </p>
+        <p v-show="paragraph === 3">Você quer me ver ...</p>
+        <p v-show="paragraph === 4">...ou eu </p>
     </div>
 
     <!-- 2) Exiba em uma <ul> um array de elementos da sua escolha.
