@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+
+<script>
+    const vm = new Vue({
+        template: `
+            <div>
+                <h1 ref="titleRef">{{ title }}</h1>
+                <h2 ref="subtitleRef">{{ subtitle }}</h2>
+                <button @click="addToTitle()">Change Title</button>
+                <button @click="addToSubtitle()">Change Subtitle</button>
+            </div>`,
+        data: {
+            title: 'Title',
+            subtitle: 'Subtitle'
+        },
+        methods: {
+            addToTitle() {
+                this.$refs.titleRef.innerHTML += '!!!'
+            },
+            addToSubtitle() {
+                this.$refs.subtitleRef.innerHTML += '???'
+            }
+        }
+    })
+
+    vm.$mount('#app')
+</script>
+</body>
+</html>
