@@ -1,0 +1,11 @@
+[v-cloak] .v-cloak--inline {
+    display: inline;
+}
+
+[v-cloak] .v-cloak--hidden {
+  display: none;
+}
+
+.v-cloak--inline {
+    display: none;
+}

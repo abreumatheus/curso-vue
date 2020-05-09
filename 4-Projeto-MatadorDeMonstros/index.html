@@ -5,6 +5,7 @@
     <title>The Monster Killer</title>
     <link rel="stylesheet" href="css/material.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mystyle.css">
     <script src="css/material.min.js"></script>
     <script src="js/vue.js"></script>
 </head>
@@ -20,8 +21,9 @@
                 <span class="mdl-layout-title">The Monster Killer</span>
             </div>
         </header>
-        <main class="mdl-layout__content">
-            <div class="page-content container">
+        <main v-cloak class="mdl-layout__content">
+            <div class="v-cloak--hidden page-content container">
+                <div class="v-cloak--inline mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
                 <div class="row">
                     <div class="mdl-cell col">
                         <h2>Player</h2>
