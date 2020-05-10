@@ -7,7 +7,12 @@
 
 <script>
 export default {
-    props: ['nome']
+    props: {
+        nome: {
+            type: String,
+            default: 'Sem Nome'
+        }
+    }
 }
 </script>
 
