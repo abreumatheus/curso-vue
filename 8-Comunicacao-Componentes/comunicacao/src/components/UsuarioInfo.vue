@@ -2,6 +2,7 @@
     <div class="componente">
         <h2>As Informações de Usuário</h2>
         <p>Nome: {{ nome }}</p>
+        <button @click="reiniciarNome()">Reiniciar Nome</button>
     </div>
 </template>
 
@@ -10,7 +11,16 @@ export default {
     props: {
         nome: {
             type: String,
-            default: 'Sem Nome'
+            required: true,
+            default: 'Matheus'
+        }
+    },
+    methods: {
+        reiniciarNome() {
+            this.nome = 'Matheus'
+            this.$emit('nomeAlterado', {
+                nome: this.nome
+            })
         }
     }
 }
