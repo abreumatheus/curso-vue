@@ -13,10 +13,10 @@
 </template>
 
 <script>
-    import NavDrawer from "./components/NavDrawer";
-    import Toolbar from "./components/Toolbar";
-    import Carousel from "./components/Carousel";
-    import Footer from "./components/Footer";
+    import NavDrawer from "./components/template/NavDrawer";
+    import Toolbar from "./components/template/Toolbar";
+    import Carousel from "./components/widgets/Carousel";
+    import Footer from "./components/template/Footer";
 
     export default {
         components: {
