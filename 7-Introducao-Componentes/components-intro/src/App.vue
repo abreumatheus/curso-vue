@@ -1,12 +1,17 @@
 <template>
     <div id="app">
-        <counter></counter>
+        <counters></counters>
     </div>
 </template>
 
 <script>
+    import Counters from "./components/Counters";
+
     export default {
-        name: 'App'
+        name: 'App',
+        components: {
+            'counters': Counters
+        }
     }
 </script>
 
